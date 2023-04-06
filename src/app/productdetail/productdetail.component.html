@@ -1,0 +1,40 @@
+
+
+<div class="container my-5">
+    <h1>Product Details</h1>
+    <div class="d-grid gap-2 col-4">
+        <a class="btn btn-info" routerLink="/addproduct" role="button">Add New Product</a>
+        </div>
+        <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>productId</th>
+                <th>category</th>
+                <th>productName</th>
+                <th>productBrand</th>
+                <th>unitPrice</th>
+                <th>cusId</th>
+                <th>categoryId</th>
+                <!-- <th>cusMobileNo</th>
+                <th>cusPassword</th> -->
+                <!-- <th>cusRegistrationDate</th>
+                <th>cusIsActive</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of newproductdata">
+                <td>{{product.productId}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.productBrand}}</td>
+                <td>{{product.unitPrice}}</td>
+                <td>{{product.cusId}}</td>
+                <td>{{product.categoryId}}</td>   
+                <td><button class="btn btn-primary" (click)="onsubmit(product)">Edit</button> </td>   
+                <!-- <td><button class="btn btn-primary" [routerLink]="[cusDetails.cusId]" (click)="onsubmit">Edit</button> </td>   -->
+                <td><button class="btn btn-danger" (click)="delete(product)">delete</button></td>          
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h2 class="card-title">Add New Product</h2><br>
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+        <div class="card-body ">
+            <div class="form-group col-sm-6">
+                <label for="productName"> Product Name</label>
+                <input type="text" formControlName="productName" class="form-control" name="productName" [(ngModel)]="addProduct.productName"   placeholder="enter product name">
+            </div>
+            <div class="form-group  col-sm-6">
+                <label for="productBrand">Product Brand</label>
+                <input type="text" class="form-control" formControlName="productBrand" name="productBrand" [(ngModel)]="addProduct.productBrand" placeholder="enter product brand">
+            </div>
+            <div class="form-group  col-sm-6">
+                <label for="unitPrice">Unit Price</label>
+                <input type="number" class="form-control" formControlName="unitPrice" name="unitPrice" [(ngModel)]="addProduct.unitPrice" placeholder="enter unit price">
+            </div>     
+            <div class="form-group  col-sm-6">
+                <label for="category">category</label>
+                <input type="text" class="form-control" formControlName="category" name="category" [(ngModel)]="addProduct.category" placeholder="enter unit price">
+            </div>   
+        </div>      
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>      
+    </form>
+</div>
