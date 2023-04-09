@@ -44,12 +44,12 @@ getCustomerInfo(id: number){
 // }
 
 updateCustomer(customer: bumblebee){
-  // return this.http.post<any>(`${config.url}/api/aCustomer/create`,customer);
    return this.http.post<bumblebee[]>(this.baseApiUrl +'api/Customer/update',customer);
  }
 
  LogCustomer(cusnlog: any){
   return this.http.post(`${config.url}api/Customer/Login`,cusnlog);
 }
+
 
 }

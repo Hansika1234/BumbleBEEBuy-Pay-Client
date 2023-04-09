@@ -25,7 +25,8 @@ export class CusDetailsComponent implements OnInit {
     cusId:0 ,
     cusFirstName :'',
     cusLastName:'',
-    cusDateofBirth:new Date(this.mydate) ,
+    // cusDateofBirth:new Date(this.mydate) ,
+    cusDateofBirth:'',
     cusEmail:'',
     cusGender:'',
     cusNic:'',
@@ -57,7 +58,8 @@ export class CusDetailsComponent implements OnInit {
 
   delete(object: any) {
     this._bumbleservice.deleteCustomer(object.cusId).subscribe((_result: any) => {
-      this.toastr.success('Product Deleted Successfully');
+     // this.toastr.success('Product Deleted Successfully');
+     alert('Delete Successfull ....!')
       this.LoadTable()
       // this.load();
     },
@@ -71,6 +73,7 @@ export class CusDetailsComponent implements OnInit {
     this.contactservice.getEmployeeInfo(object.cusId).subscribe((result: any) => {
     this.EmployeeInfo = Object.assign([], result);
     this.LoadTable()
+    alert('Update Successfull ....!')
    }) 
    }
 

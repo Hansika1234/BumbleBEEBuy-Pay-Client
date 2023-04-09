@@ -23,6 +23,7 @@ import { CusHomeComponent } from './cus-home/cus-home.component';
 import { ViewaddmincusdetailComponent } from './viewaddmincusdetail/viewaddmincusdetail.component';
 import { ViewallCusComponent } from './viewall-cus/viewall-cus.component';
 import { ViewallProductComponent } from './viewall-product/viewall-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -44,6 +45,7 @@ import { ViewallProductComponent } from './viewall-product/viewall-product.compo
     ViewaddmincusdetailComponent,
     ViewallCusComponent,
     ViewallProductComponent,
+    EditProductComponent,
   
   ],
   imports: [

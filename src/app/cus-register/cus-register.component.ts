@@ -37,7 +37,8 @@ mydate = Date.now();
   cusId:0 ,
   cusFirstName :'',
   cusLastName:'',
-  cusDateofBirth:new Date(this.mydate) ,
+  // cusDateofBirth:new Date(this.mydate),
+  cusDateofBirth:'',
   cusEmail:'',
   cusGender:'',
   cusNic:'',
@@ -55,9 +56,7 @@ mydate = Date.now();
     private bbservice: BumbleServiceService,
     private router: Router,
     private route: ActivatedRoute,
-    private fb:FormBuilder) { 
-
-    }
+    private fb:FormBuilder) {}
 
   ngOnInit(){
 
@@ -95,10 +94,21 @@ mydate = Date.now();
     this.bbservice.saveCustomer(this.addCustomer).subscribe({
       next:(bumblebee) => {
         this.router.navigate(['cusDetails']);
+        alert('Registration Successfully ....!')
 
       }
     })
   }
 
+  update(){
+    console.log('msg',this.addCustomer);
+    this.bbservice.updateCustomer(this.addCustomer).subscribe({
+      next:(bumblebee) => {
+        this.router.navigate(['cusDetails']);
+        alert('Registration Successfully ....!')
+      }
+    })
+  }
 
+  
 }

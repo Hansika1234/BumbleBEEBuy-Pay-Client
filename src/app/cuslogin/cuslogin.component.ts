@@ -44,14 +44,14 @@ export class CusloginComponent implements OnInit {
       this._bumbleservice.LogCustomer(this.myForm.value).subscribe((res) => {
         console.log(res);
         this.router.navigate(['/cusHome']);
+        alert('Loging Successfull ....!')
       //  this.toastr.success('Customer login Sucessfully ');
       });
+      //alert('Usernname or password is incorrect....!');
     }
-
-
+  //  alert('Username or password is incorrect....!');
    // this.router.navigate(['/Paymnet']); 
    }
 
    
-
 }

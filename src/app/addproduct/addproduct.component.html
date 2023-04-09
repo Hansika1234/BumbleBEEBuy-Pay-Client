@@ -2,8 +2,12 @@
     <div class="card-header">
         <h2 class="card-title">Add New Product</h2><br>
     </div>
-    <form [formGroup]="myForm" (ngSubmit)="submit()">
+    <form [formGroup]="myForm" (ngSubmit)="submit()" (ngSubmit)="update()" >
         <div class="card-body ">
+            <div class="form-group col-sm-6">
+                <label for="productId" hidden="true"> Product ID</label>
+                <input type="text" formControlName="productId" class="form-control" name="productId" [(ngModel)]="addProduct.productId" hidden="true">
+            </div>
             <div class="form-group col-sm-6">
                 <label for="productName"> Product Name</label>
                 <input type="text" formControlName="productName" class="form-control" name="productName" [(ngModel)]="addProduct.productName"   placeholder="enter product name">
@@ -24,5 +28,8 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>      
+        <div class="card-footer">
+            <button type="submit"  class="btn btn-primary">Edit</button>
+        </div>  
     </form>
 </div>

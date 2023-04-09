@@ -77,7 +77,16 @@ const routes: Routes = [
   {
     path: 'viewallCus',
     component:ViewallCusComponent,
+  },
+  {
+    path: 'editUser',
+    component:EditUserComponent,
+  },
+  {
+    path: 'paymentplan',
+    component:PaymentPlanComponent,
   }
+
 
 ];
 

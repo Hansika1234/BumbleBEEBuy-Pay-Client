@@ -17,6 +17,7 @@ export class ProductdetailComponent implements OnInit {
   error: any;
   loading!: boolean 
   EmployeeInfo: any;
+  object: any;
   
   constructor(
     private _productservice : ProductService,
@@ -38,7 +39,7 @@ export class ProductdetailComponent implements OnInit {
     }
 
     delete(object: any) {
-      this._productservice.deleteProduct(object.cusId).subscribe((_result: any) => {
+      this._productservice.deleteProduct(object.productId).subscribe((_result: any) => {
         this.toastr.success('Product Deleted Successfully');
         //this.LoadTable()
         // this.load();
@@ -50,15 +51,14 @@ export class ProductdetailComponent implements OnInit {
     }
   
     edit(object: any){
-      this._productservice.getProductInfo(object.cusId).subscribe((result: any) => {
+      this._productservice.getProductInfo(object.productId).subscribe((result: any) => {
+      /// console.log('productId',result)
       this.EmployeeInfo = Object.assign([], result);
     //  this.LoadTable()
      }) 
      }  
 
-  
-
-//save customer details
+//maping 
 onsubmit(product: any){ // cusDetails is object
   this.router.navigate(['/addproduct',{'product': JSON.stringify(product)}]); //compress as to String object
 }

@@ -28,8 +28,7 @@
                 <h2 class="card-title">Login Here</h2><br>
             </div>
             <form [formGroup]="myForm" (ngSubmit)="submit()" >
-                <div class="card-body ">
-                    
+                <div class="card-body ">               
                     <div class="form-group col-sm-6">
                         <label for="userName">User Name</label>
                         <input type="text"
@@ -38,7 +37,7 @@
                           class="form-control"
                            id="userName" 
                            placeholder="enter username" 
-                           [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }" >
+                          required >
                            
                         <!-- <div *ngIf="myForm.get('username').invalid && (myForm.get('username').dirty || myForm.get('username').touched)">
                             <div *ngIf="myForm.get('username').errors.required">Username is required</div>
@@ -48,12 +47,13 @@
                       <div class="form-group  col-sm-6">
                         <label for="userpassword">Password</label>
                         <input type="password" formControlName="userpassword" name="userpassword" class="form-control" id="userpassword" placeholder="enter password" >
+                        <small class="form-text text-muted" *ngIf="myForm.controls.userpassword.invalid && myForm.controls.userpassword.touched">Password is required</small>
                     </div> 
                    
                 </div>             
                 <div class="card-footer">
                     <!-- <button type="submit"  (click)="Submit()" class="btn btn-primary">Login</button> -->
-                    <button [disabled]="myForm.invalid" type="submit"  class="btn btn-primary">Login</button>
+                    <button [disabled]="myForm.invalid" type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Login</button>
                 </div>      
             </form>
   

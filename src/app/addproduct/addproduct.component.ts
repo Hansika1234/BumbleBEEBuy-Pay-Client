@@ -31,6 +31,7 @@ export class AddproductComponent implements OnInit {
 
 
   myForm = new FormGroup ({
+    productId : new FormControl('',Validators.required),
     productName : new FormControl('',Validators.required),
     productBrand : new FormControl('',Validators.required),
     unitPrice : new FormControl('',Validators.required),
@@ -38,6 +39,7 @@ export class AddproductComponent implements OnInit {
   })
   adminService: any;
   toastr: any;
+  EmployeeInfo: any;
 
   constructor(
     private productService : ProductService,
@@ -78,10 +80,33 @@ submit(){
     this.productService.saveProduct(this.myForm.value).subscribe(res => {
       console.log(res);
       this.router.navigate(['/home']);
+      alert('Add product Successfull ....!')
       //this.toastr.success('Product Save Sucessfully ');
     });
   }
 }
  
+edit(object: any){
+  this.productService.getProductInfo(object.cusId).subscribe((result: any) => {
+  this.EmployeeInfo = Object.assign([], result);
+//  this.LoadTable()
+ }) 
+ }  
+
+ update(){
+  this.submitted = true;
+  //console.log('value1',this.productName);
+  //console.log('value2',this.productBrand);
+  // this.loading = true;
+  if (this.myForm) {
+    this.productService.updateProduct(this.myForm.value).subscribe(res => {
+      console.log(res);
+     // this.router.navigate(['/home']);
+      alert('Add Update Successfull ....!');
+      //this.toastr.success('Product Save Sucessfully ');
+    });
+  }
+}
+
 
 }

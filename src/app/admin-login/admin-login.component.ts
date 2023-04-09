@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminserviceService } from '../service/adminservice.service';
 import { admin } from '../service/admin/admin.module';
-import { AbstractControl,FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl,FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,7 +10,7 @@ import { AbstractControl,FormBuilder, FormControl, FormGroup, Validators } from 
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
- 
+  
   username!: string;
   userpassword!: string;
   submitted = false;
@@ -20,6 +20,7 @@ export class AdminLoginComponent implements OnInit {
     userpassword : new FormControl('',Validators.required),
    
   })
+
   toastr: any;
   error: any;
   formBuilder: any;
@@ -31,28 +32,17 @@ export class AdminLoginComponent implements OnInit {
       private router: Router,
       private fb :FormBuilder) { }
 
-        ngOnInit(): void {
 
-           this.myForm = this.formBuilder.group(
-            {
-              userName: ['', Validators.required],
-              userpassword: [
-                '',
-                [
-                  Validators.required,
-                  Validators.minLength(6),
-                  Validators.maxLength(20)
-                ]
-              ],
-            }
-           )      
+
+        ngOnInit() {
+
+          //  this.myForm = this.fb.group({
+          //   userpassword: ['', Validators.required]
+          // });
+          
+          
         }
-
-        get f(): { [key: string]: AbstractControl } {
-          return this.myForm.controls;
-        }
-      
-
+        
   // //redirect to home page & save
   // Submit() {
   //  // console.log('msg',this.addCustomer);
@@ -75,10 +65,12 @@ export class AdminLoginComponent implements OnInit {
         console.log(res);
         this.router.navigate(['/home']);
        // this.toastr.success('admin login Sucessfully ');
+       alert('Loging Successfull ....!');
       });
+      //alert('Usernname or password is incorrect....!');
     }
+   //alert('Usernname or password is incorrect....!');
 }
-
 
 }
 

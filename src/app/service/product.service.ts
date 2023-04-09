@@ -43,8 +43,8 @@ export class ProductService {
     return this.http.get<any>(`${config.url}api/Product/getbyID/${id}`);
   }
 
-  updateCustomer(customer: product) {
-    return this.http.post<product[]>(this.baseApiUrl + 'api/Product/update', customer);
+  updateProduct(product: any) {
+    return this.http.post(`${config.url}api/Product/update`,product);
   }
 
 }
